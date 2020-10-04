@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "Hi-RioProject"
+    }
+  },
+  "defaultProject": "Hi-RioProject",
+  "cli": {
+    "analytics": false
+  }
 }
