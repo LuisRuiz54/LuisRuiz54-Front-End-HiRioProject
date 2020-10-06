@@ -14,6 +14,10 @@ export class ListaVisitaComponent implements OnInit {
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { }
 
   ngOnInit(): void {
+      
+  }
+
+  ngVisitasId(){
     this.route.params.subscribe(params => {
       this.id = params['id']
 
@@ -21,6 +25,7 @@ export class ListaVisitaComponent implements OnInit {
       subscribe(listavisita => this.listavisita = listavisita);
     });
   }
+  
 
   }
 
