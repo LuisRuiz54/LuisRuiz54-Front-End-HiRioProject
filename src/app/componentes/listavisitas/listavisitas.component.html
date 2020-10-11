@@ -1,12 +1,20 @@
 <h1>Meus Destinos</h1>
+<div *ngIf="visita">
 
-<ul>
-    <li>Destino número:</li>
-    <li>Nome Destino</li>
-    <li>Visitou?</li>
-    <li>Opiniões</li>
-    <li>Gastos R$:</li>
+   
+<ul *ngIf="visita"> 
+        <b>Destino número:{{visita.id}}</b>
+    <ul>
+    <li>Nome Destino:{{visita.nome_lista}}</li>
+    <li>Visitou?:{{visita.visitou_lista}}</li>
+    <li>Opiniões:{{visita.comentarios_lista}}</li>
+    <li>Gastos R$:{{ visita.valor_lista}}</li>
+    <li>{{visita.createdAt}}</li>
 </ul>
 
+</ul> 
+</div>
 <button>Editar</button>
 <button>Apagar</button>
+
+

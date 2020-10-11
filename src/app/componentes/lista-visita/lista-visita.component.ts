@@ -17,7 +17,7 @@ export class ListaVisitaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-      
+   
   }
 
   ngVisitasId(): void {
