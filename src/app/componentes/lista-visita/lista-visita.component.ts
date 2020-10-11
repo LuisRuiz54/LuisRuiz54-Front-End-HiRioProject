@@ -35,19 +35,21 @@ export class ListaVisitaComponent implements OnInit {
   }
 
   salvarNovo() {
-    const novoDestino = {name:'Corcovado'}
+    const novoDestino = {name:''}
       this.listaServ.createListaVisita(novoDestino).
       subscribe(destino => this.listavisita.push(destino));
   }
 
-  /* atualizacaoDestino(usuario: Usuario): Observable<Usuario> {
-    const url = this.baseURL + usuario.id;
-    return this.http.put<Usuario>(url, usuario);
+  atualizacaoDestino() {
+    const atualizarDestino = { id: '', name: ''}
+    this.listaServ.updateListaVisita(this.listavisita,'id').subscribe();
+    this.listavisita = this.listavisita.filter( d => d.id == atualizarDestino.id );
   }
-  
-  deletarDestino(id: number): Observable<any> {
-    const url = this.baseURL + id;
-    return this.http.delete(url);
-  } */
+
+  onDeleteDestino(): void {
+    const meuDestino = { id: '', name: '' } ;
+    this.listaServ.deleteListaVisita(meuDestino.id).subscribe();
+    this.listavisita = this.listavisita.filter( d => d.id == meuDestino.id );
+  }
 
 }

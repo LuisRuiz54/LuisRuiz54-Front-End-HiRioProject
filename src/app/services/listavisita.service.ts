@@ -31,7 +31,7 @@ export class ListavisitaService {
     createListaVisita(listavisitas: any) {
       return this.http.post('https://localhost:3000/listavisita/', listavisitas);
     }
-    updatetListaVisita(listavisitas: any, id) {
+    updateListaVisita(listavisitas: any, id) {
       return this.http.put('https://localhost:3000/listavisita/'+id, listavisitas);
     }
 
