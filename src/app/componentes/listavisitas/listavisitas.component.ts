@@ -23,10 +23,10 @@ lista: Listas [];
   
 
   getListaVisita(){
-    this.listaServ.getTodosListavisita()
-    .subscribe((dados: Listas[]) => {
-      this.lista = dados;
-    });
+   // this.listaServ.getTodosListavisita()
+    //.subscribe((dados: Listas[]) => {
+    //  this.lista = dados;
+   // });
   }
 
 

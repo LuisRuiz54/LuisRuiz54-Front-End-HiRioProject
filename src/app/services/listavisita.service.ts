@@ -56,7 +56,6 @@ export class ListavisitaService {
       )
     }
 
-    
     deleteListaVisita(listavisitas: Listas): Observable<Listas> {
       return this.http.delete<Listas>('http://localhost:3000/listavisitas/'+ listavisitas.id,  this.httpOptions);
     
