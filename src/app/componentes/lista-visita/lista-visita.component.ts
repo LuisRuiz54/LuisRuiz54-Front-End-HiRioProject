@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
+import {Listas} from '../listavisitas/Listas'
+
+
 @Component({
   selector: 'app-lista-visita',
   templateUrl: './lista-visita.component.html',
@@ -8,46 +12,41 @@ import {ListavisitaService} from '../../services/listavisita.service';
 })
 export class ListaVisitaComponent implements OnInit {
 
-  id:number;
-  listavisita: any;
-
+  listas = {} as Listas;
+  lista: Listas [];
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
-    listaServ.getTodosListavisita()
-    .subscribe(listavisita => this.listavisita = listavisita[''])
+  //  listaServ.getTodosListavisita()
+    //.subscribe(listavisita => this.listavisita = listavisita[''])
   }
 
   ngOnInit(): void {
-   
+      
   }
 
-  ngVisitasId(): void {
-    this.route.params.subscribe(params => {
-      this.id = params['id']
 
-      this.listaServ.getListaVisita(this.id).
-      subscribe(listavisita => this.listavisita = listavisita);
-    },
-    erro => {
-      if(erro.status == 404) {
-        alert('Destino não localizado')
-      }
-    });
+  SaveList(form: NgForm) {
+    if (this.listas.id !== undefined) {
+      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+        this.cleanForm(form);
+      });
+    } else {
+      this.listaServ.createListaVisita(this.listas).subscribe(() => {
+        this.cleanForm(form);
+      });
+    }
   }
 
-  salvarNovo() {
-    const novoDestino = {name:'Corcovado'}
-      this.listaServ.createListaVisita(novoDestino).
-      subscribe(destino => this.listavisita.push(destino));
+// limpa o formulario
+   cleanForm(form: NgForm) {
+    this.listaServ.getTodosListavisita();
+    form.resetForm();
   }
 
-  /* atualizacaoDestino(usuario: Usuario): Observable<Usuario> {
-    const url = this.baseURL + usuario.id;
-    return this.http.put<Usuario>(url, usuario);
+  editLista(Lista: Listas) {
+    this.listas = { ...Lista };
   }
-  
-  deletarDestino(id: number): Observable<any> {
-    const url = this.baseURL + id;
-    return this.http.delete(url);
-  } */
 
-}
+  }
+
+
+

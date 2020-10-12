@@ -1,20 +1,41 @@
 <h1>Meus Destinos</h1>
-<div *ngIf="visita">
+<div >
 
-   
-<ul *ngIf="visita"> 
-        <b>Destino número:{{visita.id}}</b>
-    <ul>
-    <li>Nome Destino:{{visita.nome_lista}}</li>
-    <li>Visitou?:{{visita.visitou_lista}}</li>
-    <li>Opiniões:{{visita.comentarios_lista}}</li>
-    <li>Gastos R$:{{ visita.valor_lista}}</li>
-    <li>{{visita.createdAt}}</li>
-</ul>
+   <table>
+       <thead>
+           <tr>
+               <th>Destino Número</th>
+               <th>id Destino</th>
+               <th>Nome Destino</th>
+               <th>Já Visitou?</th>
+               <th>Opiniões</th>
+               <th>Gastos</th>
+               <th>Registro Criado</th>
+               <th>Registro Editado</th>
+           </tr>
+       </thead>
+       <tbody>
+           <tr *ngFor="let listas of lista">
+           <td>{{listas.id}}</td> 
+           <td>{{listas.id_lugar}}</td> 
+           <td>{{listas.nome_lista}}</td>
+           <td>{{listas.visitou_lista}}</td>
+           <td>{{listas.comentarios_lista}}</td>
+           <td>{{ listas.valor_lista | currency}}</td>
+           <td>{{listas.createAt}}</td>
+           <td>{{listas.updateAt}}</td>
+           <td>
+            <button type="button">Editar</button>
+            <button type="button">Deletar</button>
+          </td>
+    
+    
+    
+           </tr>
+       </tbody>
+   </table>
 
-</ul> 
 </div>
-<button>Editar</button>
-<button>Apagar</button>
+
 
 

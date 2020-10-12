@@ -7,6 +7,7 @@ import {PontosTuristicosComponent} from './componentes/pontos-turisticos/pontos-
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './componentes/home/home.component';
 import { ListavisitasComponent } from './componentes/listavisitas/listavisitas.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ListavisitasComponent } from './componentes/listavisitas/listavisitas.c
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

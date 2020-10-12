@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
-
+import {Listas} from './Listas'
 @Component({
   selector: 'app-listavisitas',
   templateUrl: './listavisitas.component.html',
@@ -9,21 +9,26 @@ import {ListavisitaService} from '../../services/listavisita.service';
 })
 export class ListavisitasComponent implements OnInit {
 
-visita: any;
-id : number;
+listas = {} as Listas;
+lista: Listas [];
+
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      this.id = params['id']
-
-      this.listaServ.getListaVisita(this.id).
-      subscribe(visita => {
-      this.visita = visita;
-      console.log(this.visita);
-    });
-  });
+   // this.getListaVisita();
 
   }
+
+  
+
+  getListaVisita(){
+    this.listaServ.getTodosListavisita()
+    .subscribe((dados: Listas[]) => {
+      this.lista = dados;
+    });
+  }
+
+
 }
+

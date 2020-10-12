@@ -1,39 +1,15 @@
-.lbl{
-    display: inline-block;
-    width: 65px;
-    height: 33px;
-    background: #979797;
-    border-radius: 100px;
-    cursor: pointer;
-    position: relative;
-    transition: .2s;
-  }
-   
-  .lbl::after{
-    content: '';
-    display: block;
-    width: 25px;
-    height: 25px;
-    background: #eee;
-    border-radius: 100px;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    transition: .2s;
-  }
-   
-  #switch:checked + .lbl::after{
-    left: 36px;
-  }
-   
-  #switch:checked + .lbl{
-    background: #00C8B1;
-  }
-   
-  #switch{
-    display: none;
-  }
+.container {
+  margin-top: 30px;
+}
 
-  input{
-      display: block;
-  }
+.add-car {
+  margin-bottom: 30px;
+}
+
+.list-car {
+  margin-bottom: 50px;
+}
+
+.btn-add-car {
+  margin-right: 10px;
+}

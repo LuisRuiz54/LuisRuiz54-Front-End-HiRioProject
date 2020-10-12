@@ -6,7 +6,7 @@ import {ListavisitasComponent} from '../app/componentes/listavisitas/listavisita
 
 const APP_ROUTES: Routes = [
   {path: '', component: HomeComponent },
-  {path: 'listavisitas/', component: ListavisitasComponent },
+  {path: 'listavisitas', component: ListavisitasComponent },
   {path: 'listavisitas/:id', component: ListavisitasComponent },
   {path: 'listavisita', component:  ListaVisitaComponent},
   

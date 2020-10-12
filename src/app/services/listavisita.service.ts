@@ -1,23 +1,36 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-
-
+import { Observable, throwError } from 'rxjs';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
+import {Listas} from '../componentes/listavisitas/Listas'
+import {catchError, map, retry, tap} from 'rxjs/operators'
 @Injectable({
   providedIn: 'root'
 })
 export class ListavisitaService {
 
-  visitas: any [];
-  pontosturisticos: any [];
+  
 
   constructor(private http: HttpClient) {}
 
-    getTodosListavisita() {
-      return this.http.get('http://localhost:3000/listavisitas/');
+  // Headers
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
+    
+    getTodosListavisita(): Observable<Listas> {
+      return this.http.get<Listas>('http://localhost:3000/listavisitas').
+      pipe(
+        tap(console.log),
+        retry(2),
+        catchError(this.handleError))
     }
-
-    getListaVisita(id){
-      return this.http.get('http://localhost:3000/listavisitas/'+id);
+   
+    getListaVisita(id: number): Observable<Listas>{
+      return this.http.get<Listas>('http://localhost:3000/listavisitas/'+id).
+      pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
 
     }
 
@@ -25,19 +38,42 @@ export class ListavisitaService {
       return this.http.get('http://localhost:3000/pontosturisticos/');
     }
 
-    getPontosTuristicos(id){
-      return this.http.get('http://localhost:3000/pontosturisticos/'+id);
+
+    createListaVisita(listavisitas: Listas): Observable<Listas> {
+      return this.http.post<Listas>('http://localhost:3000/listavisitas/', JSON.stringify(listavisitas), this.httpOptions).
+      pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+      
     }
 
-    createListaVisita(listavisitas: any) {
-      return this.http.post('http://localhost:3000/listavisitas/', listavisitas);
-    }
-    updatetListaVisita(listavisitas: any, id) {
-      return this.http.put('http://localhost:3000/listavisitas/'+id, listavisitas);
+    updatetListaVisita(listavisitas: Listas): Observable<Listas> {
+      return this.http.put<Listas>('http://localhost:3000/listavisitas/'+ listavisitas.id, JSON.stringify(listavisitas), this.httpOptions).
+      pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
     }
 
-    deleteListaVisita(id){
-      return this.http.delete('http://localhost:3000/listavisitas/'+id);
+    
+    deleteListaVisita(listavisitas: Listas): Observable<Listas> {
+      return this.http.delete<Listas>('http://localhost:3000/listavisitas/'+ listavisitas.id,  this.httpOptions);
+    
     }
+
+    // Manipulação de erros
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = '';
+    if (error.error instanceof ErrorEvent) {
+      // Erro ocorreu no lado do client
+      errorMessage = error.error.message;
+    } else {
+      // Erro ocorreu no lado do servidor
+      errorMessage = `Código do erro: ${error.status}, ` + `menssagem: ${error.message}`;
+    }
+    console.log(errorMessage);
+    return throwError(errorMessage);
+  };
     }
 
