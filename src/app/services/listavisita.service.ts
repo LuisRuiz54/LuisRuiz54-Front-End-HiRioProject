@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 import {Listas} from '../componentes/listavisitas/Listas'
+import {Pontos} from '../componentes/pontos-turisticos/Pontos'
 import {catchError, map, retry, tap} from 'rxjs/operators'
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -17,7 +20,7 @@ export class ListavisitaService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
     
-    getTodosListavisita(): Observable<Listas> {
+    getTodosListavisita() {
       return this.http.get<Listas>('http://localhost:3000/listavisitas').
       pipe(
         tap(console.log),
@@ -35,7 +38,12 @@ export class ListavisitaService {
     }
 
     getTodosPontosTuristicos() {
-      return this.http.get('http://localhost:3000/pontosturisticos/');
+      return this.http.get<Pontos>('http://localhost:3000/lugares/').
+      pipe(
+        tap(console.log),
+        retry(2),
+        catchError(this.handleError)
+      )
     }
 
 
