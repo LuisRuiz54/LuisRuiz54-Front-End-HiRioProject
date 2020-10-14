@@ -13,12 +13,15 @@
            </tr>
        </thead>
        <tbody>
-           <tr *ngFor="let listas of lista">
-           <td>{{listas.id}}</td>     
-           <td>{{listas.nome_lista}}</td>
-           <td>{{listas.visitou_lista}}</td>
-           <td>{{listas.comentarios_lista}}</td>
-           <td>{{ listas.valor_lista | currency}}</td>
+           <tr *ngFor="let lista of listas">
+           <td>{{id}}</td> 
+           <td>{{id_lugar}}</td> 
+           <td>{{nome_lista}}</td>
+           <td>{{visitou_lista}}</td>
+           <td>{{comentarios_lista}}</td>
+           <td>{{ valor_lista | currency}}</td>
+           <td>{{createAt}}</td>
+           <td>{{updateAt}}</td>
            <td>
             <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)">Editar</button>
             <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteLista(listas)">Deletar</button>

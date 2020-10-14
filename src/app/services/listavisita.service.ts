@@ -27,8 +27,8 @@ export class ListavisitaService {
         retry(2),
         catchError(this.handleError))
     }
-   
-    getListaVisita(id: number): Observable<Listas>{
+
+    getListaVisita(id: number): Observable <Listas>{
       return this.http.get<Listas>('http://localhost:3000/listavisitas/'+id).
       pipe(
         retry(2),
@@ -64,7 +64,7 @@ export class ListavisitaService {
       
     }
 
-    updatetListaVisita(listavisitas: Listas): Observable<Listas> {
+    updateListaVisita(listavisitas: Listas): Observable<Listas> {
       return this.http.put<Listas>('http://localhost:3000/listavisitas/'+ listavisitas.id, JSON.stringify(listavisitas), this.httpOptions).
       pipe(
         retry(1),

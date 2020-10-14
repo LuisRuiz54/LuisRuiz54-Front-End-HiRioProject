@@ -30,7 +30,7 @@ ponto: Pontos [];
 
   SaveList(form: NgForm) {
     if (this.listas.id !== undefined) {
-      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+      this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
       });
     } else {
@@ -41,7 +41,7 @@ ponto: Pontos [];
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }

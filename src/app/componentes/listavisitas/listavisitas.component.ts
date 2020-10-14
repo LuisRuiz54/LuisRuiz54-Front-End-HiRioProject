@@ -27,7 +27,7 @@ id:number;
   }
 
   ngOnInit(): void {
-   this.getListaVisita();
+  this.getListaVisita();
 
   }
 
@@ -54,7 +54,7 @@ id:number;
 
   SaveList(form: NgForm) {
     if (this.listas.id !== undefined) {
-      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+      this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
         this.getListaVisita();
       });
@@ -67,7 +67,7 @@ id:number;
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }
