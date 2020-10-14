@@ -1,2 +1,42 @@
 <h1>Pontos Turisticos disponíveis no nosso site</h1>
 
+<div *ngFor="let listas of lista">
+
+   <input placeholder="{{listas.nome_lugar}}">
+   <input placeholder="{{listas.endereco_lugar}}">
+<!-- <select name="pontosT">
+   <option></option>
+   <option   value ="{{listas.id}}">{{listas.nome_lugar}}</option>  
+</select>
+<select name="pontosE">
+   <option></option>
+   <option  *ngFor="let listas of lista" value ="{{listas.id}}">{{listas.endereco_lugar}</option>  
+</select> -->
+</div>
+
+
+<!-- <table class="table">
+    <thead>
+      <tr>
+       <th scope="col">Destino Número</th>
+       <th scope="col">Nome Destino</th>
+       <th scope="col">Endereco</th>
+       <th scope="col">Gastos</th>
+   </tr>
+</thead>
+<tbody>
+   <tr *ngFor="let listas of lista">
+   <td>{{listas.id}}</td>     
+   <td>{{listas.nome_lugar}}</td>
+   <td>{{listas.endereco_lugar}}</td>
+   <td>{{ listas.valor_lugar | currency}}</td>
+   <td>
+    <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)">Editar</button>
+    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteLista(listas)">Deletar</button>
+  </td>
+
+
+
+   </tr>
+</tbody>
+</table> -->
