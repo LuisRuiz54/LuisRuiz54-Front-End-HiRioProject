@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
 import {Listas} from './Listas'
+
 @Component({
   selector: 'app-listavisitas',
   templateUrl: './listavisitas.component.html',
@@ -16,19 +17,17 @@ lista: Listas [];
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { }
 
   ngOnInit(): void {
-   // this.getListaVisita();
-
+  this.getListaVisita();
   }
 
-  
 
   getListaVisita(){
-   // this.listaServ.getTodosListavisita()
-    //.subscribe((dados: Listas[]) => {
-    //  this.lista = dados;
-   // });
-  }
-
+  this.listaServ.getTodosListavisita()
+    .subscribe((lista: lista[]) => {
+    this.lista = lista;
+  });
+  
+}
 
 }
 

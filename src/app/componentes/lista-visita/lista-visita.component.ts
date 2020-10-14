@@ -26,7 +26,7 @@ export class ListaVisitaComponent implements OnInit {
 
   SaveList(form: NgForm) {
     if (this.listas.id !== undefined) {
-      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+      this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
       });
     } else {
@@ -37,7 +37,7 @@ export class ListaVisitaComponent implements OnInit {
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }

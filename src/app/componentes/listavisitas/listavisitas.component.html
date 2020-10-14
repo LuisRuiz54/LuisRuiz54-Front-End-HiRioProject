@@ -15,15 +15,15 @@
            </tr>
        </thead>
        <tbody>
-           <tr *ngFor="let listas of lista">
-           <td>{{listas.id}}</td> 
-           <td>{{listas.id_lugar}}</td> 
-           <td>{{listas.nome_lista}}</td>
-           <td>{{listas.visitou_lista}}</td>
-           <td>{{listas.comentarios_lista}}</td>
-           <td>{{ listas.valor_lista | currency}}</td>
-           <td>{{listas.createAt}}</td>
-           <td>{{listas.updateAt}}</td>
+           <tr *ngFor="let lista of listas">
+           <td>{{id}}</td> 
+           <td>{{id_lugar}}</td> 
+           <td>{{nome_lista}}</td>
+           <td>{{visitou_lista}}</td>
+           <td>{{comentarios_lista}}</td>
+           <td>{{ valor_lista | currency}}</td>
+           <td>{{createAt}}</td>
+           <td>{{updateAt}}</td>
            <td>
             <button type="button">Editar</button>
             <button type="button">Deletar</button>
@@ -36,6 +36,5 @@
    </table>
 
 </div>
-
 
 
