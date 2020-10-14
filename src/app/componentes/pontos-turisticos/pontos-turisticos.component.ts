@@ -10,8 +10,8 @@ import { Pontos } from './Pontos';
 })
 export class PontosTuristicosComponent implements OnInit {
 
-listas = {} as Pontos;
-lista: Pontos [];
+pontos = {} as Pontos;
+ponto: Pontos [];
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { }
 
@@ -22,7 +22,7 @@ lista: Pontos [];
   getPontosTuristicos(){
     this.listaServ.getTodosPontosTuristicos()
     .subscribe(dados => {
-    this.lista = dados.lista;
+    this.ponto = dados.lista;
     });
   }
 

@@ -20,6 +20,8 @@ pontos = {} as Pontos;
 ponto: Pontos[];
 mostrar: boolean = false;
 
+id:number;
+
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { 
     this.mostrar = false;
   }
@@ -35,6 +37,13 @@ mostrar: boolean = false;
     this.ponto = dados.lista;
     });
   }
+
+  // getPontosTuristicosId(){
+  //   this.listaServ.getLugaresById(id)
+  //   .subscribe(dados => {
+  //   this.ponto = dados.lista;
+  //   });
+  // }
 
   getListaVisita(){
     this.listaServ.getTodosListavisita()
@@ -65,7 +74,7 @@ mostrar: boolean = false;
 
   editLista(Lista: Listas) {
     this.listas = { ...Lista };
-    this.mostrar = true;
+    
   }
 
   deleteLista(Lista: Listas) {

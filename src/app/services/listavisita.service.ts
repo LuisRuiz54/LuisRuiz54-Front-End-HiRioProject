@@ -37,6 +37,14 @@ export class ListavisitaService {
 
     }
 
+    getLugaresById(id: number): Observable<Pontos>{
+      return this.http.get<Pontos>('http://localhost:3000/listavisitas/'+id).
+      pipe(
+        retry(2),
+        catchError(this.handleError)
+      )
+    }
+
     getTodosPontosTuristicos() {
       return this.http.get<Pontos>('http://localhost:3000/lugares/').
       pipe(
