@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
 import {Listas} from '../listavisitas/Listas'
+import { Pontos } from '../pontos-turisticos/Pontos';
 
 
 @Component({
@@ -14,13 +15,16 @@ export class ListaVisitaComponent implements OnInit {
 
   listas = {} as Listas;
   lista: Listas [];
+
+  pontos = {} as Pontos;
+ponto: Pontos [];
+
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
-  //  listaServ.getTodosListavisita()
-    //.subscribe(listavisita => this.listavisita = listavisita[''])
+ 
   }
 
   ngOnInit(): void {
-      
+    this.getPontosTuristicos();
   }
 
 
@@ -45,6 +49,14 @@ export class ListaVisitaComponent implements OnInit {
   editLista(Lista: Listas) {
     this.listas = { ...Lista };
   }
+
+  getPontosTuristicos(){
+    this.listaServ.getTodosPontosTuristicos()
+    .subscribe(dados => {
+    this.ponto = dados.lista;
+    });
+  }
+
 
   }
 

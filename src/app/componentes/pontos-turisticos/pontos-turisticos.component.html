@@ -1,17 +1,17 @@
 <h1>Pontos Turisticos disponíveis no nosso site</h1>
 
-<div *ngFor="let listas of lista">
+<div *ngFor="let pontos of ponto">
 
-   <input placeholder="{{listas.nome_lugar}}">
-   <input placeholder="{{listas.endereco_lugar}}">
-<!-- <select name="pontosT">
+   <input placeholder="{{pontos.nome_lugar}}">
+   <input placeholder="{{pontos.endereco_lugar}}">
+<select name="pontosT">
    <option></option>
-   <option   value ="{{listas.id}}">{{listas.nome_lugar}}</option>  
+   <option *ngFor="let pontos of ponto"  value ="{{pontos.id}}">{{pontos.nome_lugar}}</option>  
 </select>
 <select name="pontosE">
    <option></option>
-   <option  *ngFor="let listas of lista" value ="{{listas.id}}">{{listas.endereco_lugar}</option>  
-</select> -->
+   <option  *ngFor="let pontos of ponto" value ="{{pontos.id}}">{{pontos.endereco_lugar}}</option>  
+</select> 
 </div>
 
 

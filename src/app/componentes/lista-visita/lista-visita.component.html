@@ -1,123 +1,55 @@
-<div class="card add-car">
-  <h5 class="card-header">Novo Destino</h5>
-  <div class="card-body">
-
-  <form id="add-form" (ngSubmit)="f.form.valid && SaveList(f)" #f="ngForm" novalidate>
-
-
-    <div class="form-group">
-        <label for="nome_lista">Destino Escolhido</label>
-        <input type="text" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && nome_lista.invalid }" >
-        <div *ngIf="f.submitted && visitou_lista.invalid" class="invalid-feedback">
-          <div *ngIf="visitou_lista.errors.required">Nome é obrigatorios</div>
-        </div>
-        </div>
-   
+<div class="center">
+  <div class="card add-car">
+      <h5 class="card-header">Novo Destino</h5>
+      <div class="card-body">
+    
+      <form id="add-form" (ngSubmit)="f.form.valid && SaveList(f)" #f="ngForm" novalidate>
+    
+    
         <div class="form-group">
-          <label for="visitou_lista">Visitou?</label>
-          <input type="text" [(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }" placeholder="Digite">
-          <div *ngIf="f.submitted && visitou_lista.invalid" class="invalid-feedback">
-              <div *ngIf="visitou_lista.errors.required">Comentarios sao obrigatorios</div>
+            <label for="nome_lista">Escolha seu destino</label>
+            <select class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel">
+              
+            <option  *ngFor="let pontos of ponto" value={{pontos.nome_lugar}}>{{pontos.nome_lugar}}</option>
+            </select>
+          </div>
+            <div class="form-group">
+              <label for="endereco_lugar">Endereço</label>
+              <input type="text" id="endereco_lugar" name="endereco_lugar" required class="form-control" readonly placeholder="{{pontos.endereco_lugar}}">
+              </div> 
+            
+  
+            <div class="form-group">
+              <label for="visitou_lista">Visitou?</label>
+              <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
+              <option [value]="true">Sim</option>
+              <option [value]="false">Não</option>
+              </select>
+            </div>
+       
+            
+        
+        <div class="form-group">
+          <label for="comentarios_lista">Opiniões</label>
+          <input type="text" [(ngModel)]="listas.comentarios_lista" id="comentarios_lista" name="comentarios_lista" #comentarios_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && comentarios_lista.invalid }" placeholder="Conte para nós sua opinião ou expectativas sobre sua visita">
+          <div *ngIf="f.submitted && comentarios_lista.invalid" class="invalid-feedback">
+              <div *ngIf="comentarios_lista.errors.required">Comentarios são obrigatorios</div>
             </div>
         </div>
-    <!-- <div class="form-group">
-        <label for="endereco_lugar">Endereco</label>
-        <input type="text" [(ngModel)]="listas.endereco_lugar" id="endereco_lugar" name="endereco_lugar" #endereco_lugar="ngModel" [ngClass]="{ 'is-invalid': f.submitted && endereco_lugar.invalid }" readonly>
-        </div> -->
-    
-    <div class="form-group">
-      <label for="comentarios_lista">Opinioes</label>
-      <input type="text" [(ngModel)]="listas.comentarios_lista" id="comentarios_lista" name="comentarios_lista" #comentarios_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && comentarios_lista.invalid }" placeholder="Digite">
-      <div *ngIf="f.submitted && comentarios_lista.invalid" class="invalid-feedback">
-          <div *ngIf="comentarios_lista.errors.required">Comentarios sao obrigatorios</div>
+        <div class="form-group">
+            <label for="valor_lista">Preço</label>
+            <input type="number" [(ngModel)]="listas.valor_lista" id="price" name="valor_lista" #valor_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && valor_lista.invalid }" placeholder="Valor estimado em gastos para sua visita" >
+            <div *ngIf="f.submitted && valor_lista.invalid" class="invalid-feedback">
+                <div *ngIf="valor_lista.errors.required">Preço é obrigatório</div>
+            </div>
         </div>
-    </div>
-    <div class="form-group">
-        <label for="valor_lista">Preço</label>
-        <input type="number" [(ngModel)]="listas.valor_lista" id="price" name="valor_lista" #valor_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && valor_lista.invalid }">
-        <div *ngIf="f.submitted && valor_lista.invalid" class="invalid-feedback">
-            <div *ngIf="valor_lista.errors.required">Preço é obrigatório</div>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
-    <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
-
-  </form>
-
-</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <body>
-    <h1>Novo Destino a visitar</h1>
-    <div>
-        <label>Destino Escolhido</label>
-        <input readonly> 
-        <label>Endereço</label>
-        <input readonly>
+        <button type="submit" class="btn btn-primary btn-add-car"  [routerLink] = "['/listavisita']">Salvar</button>
+        <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
        
-    <div class="swtich-container">
-        <label>Já visitou?</label>
-        <br>
-        <input type="checkbox" id="switch">
-        <label for="switch" class="lbl"></label>
+      </form>
+    
     </div>
-    <label>Opiniões</label>
-    <br>
-    <textarea placeholder="Digite aqui seus comentarios ou sua expectativa na visita deste lugar"></textarea>
-    <br>
-    <label>Valor aproximado em gastos para seu destino escolhido</label>
-    <input placeholder="R$">
-    <button>Gravar</button>
     </div>
-</body>
- -->
-
-
-
-<!-- (WLAD)  <p>
-    {{ listavisita | json }}
-  <p>
-  
-  <ul>
-    <li *ngFor="let destino of listavisita">
-      {{ destino.name }}
-    </li>
-  <ul>
-  
-  <div class="container-btn">
-    <button class="btn btn-success"(click)="salvarNovo()">Add destino</button>
+    
   </div>
-
-<input type="text">
-  <label for=""></label> -->
+    
