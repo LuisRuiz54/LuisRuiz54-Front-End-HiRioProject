@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
@@ -11,13 +11,15 @@ import { Pontos } from '../pontos-turisticos/Pontos';
   templateUrl: './lista-visita.component.html',
   styleUrls: ['./lista-visita.component.css']
 })
-export class ListaVisitaComponent implements OnInit {
+export class ListaVisitaComponent implements OnInit, OnChanges {
 
 listas = {} as Listas;
 lista: Listas [];
 
 pontos = {} as Pontos;
 ponto: Pontos [];
+
+
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
 
@@ -56,6 +58,15 @@ ponto: Pontos [];
     this.ponto = dados.lista;
     });
   }
+
+  //função que busca pelo value do select para conseguir preencher um input com endereço do lugar
+  onSelect(id:number){
+  //  this.listaServ.getLugaresById(id)
+  //  .subscribe(dados => {
+   // this.ponto = dados.lista;
+   //  });
+  }
+
 
 
 }
