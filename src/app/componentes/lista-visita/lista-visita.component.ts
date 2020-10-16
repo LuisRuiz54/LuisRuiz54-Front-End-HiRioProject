@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
@@ -11,7 +11,7 @@ import { Pontos } from '../pontos-turisticos/Pontos';
   templateUrl: './lista-visita.component.html',
   styleUrls: ['./lista-visita.component.css']
 })
-export class ListaVisitaComponent implements OnInit, OnChanges {
+export class ListaVisitaComponent implements OnInit {
 
 listas = {} as Listas;
 lista: Listas [];
