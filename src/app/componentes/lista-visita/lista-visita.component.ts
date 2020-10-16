@@ -59,6 +59,15 @@ ponto: Pontos [];
     });
   }
 
+  //função que busca pelo value do select para conseguir preencher um input com endereço do lugar
+  onSelect(id:number){
+  //  this.listaServ.getLugaresById(id)
+  //  .subscribe(dados => {
+   // this.ponto = dados.lista;
+   //  });
+  }
+
+
 
   }
 

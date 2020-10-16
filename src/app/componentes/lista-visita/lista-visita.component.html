@@ -1,4 +1,4 @@
-<div class="center">
+<div class="container">
   <div class="card add-car">
       <h5 class="card-header">Novo Destino</h5>
       <div class="card-body">
@@ -8,9 +8,10 @@
     
         <div class="form-group">
             <label for="nome_lista">Escolha seu destino</label>
-            <select class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel">
+            <select
+            class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel">
               
-            <option  *ngFor="let pontos of ponto" value={{pontos.nome_lugar}}>{{pontos.nome_lugar}}</option>
+            <option  *ngFor="let pontos of ponto" value={{pontos.id}}>{{pontos.nome_lugar}}</option>
             </select>
 
           </div>
