@@ -66,9 +66,7 @@ ponto: Pontos [];
    // this.ponto = dados.lista;
    //  });
   }
-
-
-
+  
 }
 
 
