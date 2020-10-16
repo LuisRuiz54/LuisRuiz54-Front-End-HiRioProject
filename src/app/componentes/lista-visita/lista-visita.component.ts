@@ -13,14 +13,14 @@ import { Pontos } from '../pontos-turisticos/Pontos';
 })
 export class ListaVisitaComponent implements OnInit {
 
-  listas = {} as Listas;
-  lista: Listas [];
+listas = {} as Listas;
+lista: Listas [];
 
-  pontos = {} as Pontos;
+pontos = {} as Pontos;
 ponto: Pontos [];
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
- 
+
   }
 
   ngOnInit(): void {
@@ -58,7 +58,7 @@ ponto: Pontos [];
   }
 
 
-  }
+}
 
 
 
