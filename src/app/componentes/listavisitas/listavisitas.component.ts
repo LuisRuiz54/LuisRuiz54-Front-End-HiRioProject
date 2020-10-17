@@ -27,7 +27,7 @@ id:number;
   }
 
   ngOnInit(): void {
-   this.getListaVisita();
+    this.getListaVisita();
 
   }
 
@@ -67,7 +67,7 @@ id:number;
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }
