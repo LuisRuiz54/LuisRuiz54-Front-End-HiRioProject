@@ -9,9 +9,9 @@
         <div class="form-group">
             <label for="nome_lista">Escolha seu destino</label>
             <select
-            class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel">
+            class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel" (change)="onChange(nome_lista)">
               
-            <option  *ngFor="let pontos of ponto" value={{pontos.nome_lugar}}>{{pontos.nome_lugar}}</option>
+            <option  *ngFor="let pontos of ponto" value={{pontos.id}}>{{pontos.nome_lugar}}</option>
             </select>
 
           </div>

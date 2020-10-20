@@ -67,6 +67,10 @@ ponto: Pontos [];
    //  });
   }
   
+  onChange(id) {
+    console.log(id.model);
+  }
+
 }
 
 
