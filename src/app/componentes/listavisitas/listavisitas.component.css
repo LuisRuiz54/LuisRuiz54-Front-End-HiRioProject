@@ -1,5 +1,6 @@
 .fondo {
     background-image: url(/assets/Rio2.jpg);   
+    padding: 5px;
 }
 
 .card {
@@ -25,7 +26,7 @@ nav {
 }
 
 div.container {
-    padding: 5px;
+    padding: 0px;
 }
 
 div a {
@@ -58,6 +59,9 @@ button {
     margin-right: 5px;
     width: 95px;
 }
+nav button{
+    border: none;
+}
 
 /*Responsive*/
 
@@ -71,11 +75,28 @@ button {
     }
 }
 
+@media (max-width:992px){
+    nav {
+        padding: 0px;
+    }
+}
+
 @media (max-width: 768px) {
     .card-body {
-        font-size: 15px;
-        
+        font-size: 15px;  
     }
-    
-    
+}
+
+@media (max-width: 419px) {
+    nav {
+        width: auto;
+    }
+
+    div.container {
+        width: 320px;
+        margin: 3px 3px;
+    }
+    div.card-body th {
+        width: 30px;
+    }
 }
