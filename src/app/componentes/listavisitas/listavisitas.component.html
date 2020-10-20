@@ -59,22 +59,22 @@
   
       <div class="form-group">
           <label for="nome_lista">Destino Escolhido</label>
-     <!-- <input type="text" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel" required class="form-control" readonly> -->
-          <select class="custom-select" [(ngModel)]="listas.nome_lista">
+          <input type="text" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel" required class="form-control" readonly>
+    <!--  <select class="custom-select" [(ngModel)]="listas.nome_lista">
           <option  *ngFor="let pontos of ponto" value ="{{listas.id}}">{{pontos.nome_lugar}}</option>
-          </select>
+          </select> -->
           </div>
 
           <div class="form-group">
             <label for="visitou_lista">Visitou?</label>
-        <!--<select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
+            <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
               <option [value]="true">Sim</option>
               <option [value]="false">Não</option>
-              </select> -->
-            <div class="seleccion">
+              </select>
+        <!--<div class="seleccion">
             <p>Sim</p><input class="Uno" type="radio" value="Sim" [(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
             <p>Não</p><input class="Dos" type="radio" value="Não"[(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
-            </div>
+            </div> -->
             <div *ngIf="f.submitted && visitou_lista.invalid" class="invalid-feedback">
                 <div *ngIf="visitou_lista.errors.required">Comentarios sao obrigatorios</div>
               </div>
