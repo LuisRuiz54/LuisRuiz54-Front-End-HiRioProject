@@ -42,7 +42,7 @@
             <label for="valor_lista">Preço</label>
             <input type="number" [(ngModel)]="listas.valor_lista" id="price" name="valor_lista" #valor_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && valor_lista.invalid }" placeholder="Valor estimado em gastos para sua visita" >
             <div *ngIf="f.submitted && valor_lista.invalid" class="invalid-feedback">
-                <div *ngIf="valor_lista.errors.required">Preço é obrigatório</div>
+                <div *ngIf="valor_lista.errors.required">Valor é obrigatório</div>
             </div>
         </div>
         <button type="submit" class="btn btn-primary btn-add-car"  [routerLink] = "['/listavisita']">Salvar</button>
