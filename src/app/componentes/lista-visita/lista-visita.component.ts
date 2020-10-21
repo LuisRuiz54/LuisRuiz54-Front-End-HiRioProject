@@ -20,6 +20,9 @@ pontos = {} as Pontos;
 ponto: Pontos [];
 
 
+nome_lista: string  = '0';
+verSeleccion: string        = '';
+
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
 
@@ -48,10 +51,6 @@ ponto: Pontos [];
     form.resetForm();
   }
 
-  editLista(Lista: Listas) {
-    this.listas = { ...Lista };
-  }
-
   getPontosTuristicos(){
     this.listaServ.getTodosPontosTuristicos()
     .subscribe(dados => {
@@ -59,16 +58,17 @@ ponto: Pontos [];
     });
   }
 
-  //função que busca pelo value do select para conseguir preencher um input com endereço do lugar
-  onSelect(id:number){
-  //  this.listaServ.getLugaresById(id)
-  //  .subscribe(dados => {
-   // this.ponto = dados.lista;
-   //  });
-  }
   
-  onChange(id) {
-    console.log(id.model);
+  teste() {
+    this.verSeleccion = this.listas.nome_lista;
+    /* this.id = this.verSeleccion
+  
+
+       this.listaServ.getLugaresById(parseInt(this.id)).
+      subscribe(dados => {
+        this.pontos = dados;
+      console.log(this.ponto)
+     }); */
   }
 
 }
