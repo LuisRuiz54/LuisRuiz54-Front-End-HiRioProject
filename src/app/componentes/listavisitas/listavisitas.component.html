@@ -33,7 +33,7 @@
            <tr *ngFor="let listas of lista">
           <td>{{listas.id}}</td>     
           <td>{{listas.nome_lista}}</td>
-          <td>{{listas.visitou_lista}}</td>
+          <td>{{true == listas.visitou_lista ? 'Sim' : 'Não' }}</td>
           <td>{{listas.comentarios_lista}}</td>
           <td>{{listas.valor_lista | currency}}</td>
           <td class="botones">
