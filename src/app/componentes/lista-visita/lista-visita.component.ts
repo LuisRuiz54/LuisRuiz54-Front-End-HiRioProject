@@ -61,14 +61,7 @@ verSeleccion: string        = '';
   
   teste() {
     this.verSeleccion = this.listas.nome_lista;
-    /* this.id = this.verSeleccion
-  
-
-       this.listaServ.getLugaresById(parseInt(this.id)).
-      subscribe(dados => {
-        this.pontos = dados;
-      console.log(this.ponto)
-     }); */
+    
   }
 
 }

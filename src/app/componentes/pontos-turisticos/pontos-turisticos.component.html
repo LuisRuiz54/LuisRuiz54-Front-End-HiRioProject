@@ -1,42 +1,28 @@
-<h1>Pontos Turisticos disponíveis no nosso site</h1>
 
-<div *ngFor="let pontos of ponto">
-
-   <input placeholder="{{pontos.nome_lugar}}">
-   <input placeholder="{{pontos.endereco_lugar}}">
-<select name="pontosT">
-   <option></option>
-   <option *ngFor="let pontos of ponto"  value ="{{pontos.id}}">{{pontos.nome_lugar}}</option>  
-</select>
-<select name="pontosE">
-   <option></option>
-   <option  *ngFor="let pontos of ponto" value ="{{pontos.id}}">{{pontos.endereco_lugar}}</option>  
-</select> 
-</div>
-
-
-<!-- <table class="table">
+<div class="fondo">
+   <div class="container">
+       <div class="card list-car">
+         <h5 class="card-header">Pontos Turisticos disponíveis no nosso site</h5>
+         <div class="card-body">
+           <table class="table">
     <thead>
       <tr>
        <th scope="col">Destino Número</th>
        <th scope="col">Nome Destino</th>
        <th scope="col">Endereco</th>
-       <th scope="col">Gastos</th>
+       <th scope="col">Custo estimado de visita</th>
    </tr>
 </thead>
 <tbody>
-   <tr *ngFor="let listas of lista">
-   <td>{{listas.id}}</td>     
-   <td>{{listas.nome_lugar}}</td>
-   <td>{{listas.endereco_lugar}}</td>
-   <td>{{ listas.valor_lugar | currency}}</td>
-   <td>
-    <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)">Editar</button>
-    <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteLista(listas)">Deletar</button>
-  </td>
-
-
-
-   </tr>
+   <tr *ngFor="let pontos of ponto">
+   <td>{{pontos.id}}</td>     
+   <td>{{pontos.nome_lugar}}</td>
+   <td>{{pontos.endereco_lugar}}</td>
+   <td>{{ pontos.valor_lugar | currency:'BRL':true:'1.2-2'}}</td>
+    </tr>
 </tbody>
-</table> -->
+</table> 
+         </div>
+       </div>
+   </div>
+</div>

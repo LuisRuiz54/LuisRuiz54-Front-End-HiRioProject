@@ -18,9 +18,10 @@ lista: Listas [];
 
 pontos = {} as Pontos;
 ponto: Pontos[];
+
 mostrar: boolean = false;
 
-id:number;
+
 
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { 
     this.mostrar = false;
@@ -73,8 +74,9 @@ id:number;
   }
 
   editLista(Lista: Listas) {
-    this.listas = { ...Lista };
     this.mostrar = true;
+    this.listas = { ...Lista };
+    
   }
 
   deleteLista(Lista: Listas) {

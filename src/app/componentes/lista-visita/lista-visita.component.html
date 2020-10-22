@@ -1,7 +1,8 @@
 
 <div class="fondo">
+  
   <div class="card add-car">
-      <h5 class="card-header">Novo Destino</h5>
+    <h5 class="card-header">Novo Destino</h5>
       <div class="card-body">
     
       <form id="add-form" (ngSubmit)="f.form.valid && SaveList(f)" #f="ngForm" novalidate>
@@ -9,31 +10,22 @@
     
         <div class="form-group">
             <label for="nome_lista">Escolha seu destino</label>
-            <select
-            class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel" (change)="teste()">
+            <select required
+            class="custom-select" [(ngModel)]="listas.nome_lista" id="nome_lista" name="nome_lista" #nome_lista="ngModel">
             
-           <option *ngFor="let pontos of ponto" >{{pontos.nome_lugar}}</option>
-
+           <option *ngFor="let pontos of ponto" value="{{pontos.nome_lugar}}">{{pontos.nome_lugar}}</option>
+           
             </select>
             
-
-          </div>
-            <div class="form-group">
-              <label for="endereco_lugar">Endereço</label>
-              <input type="text" id="endereco_lugar" name="endereco_lugar" required class="form-control" readonly [hidden]="listas.nome_lista == '0'" placeholder="{{ verSeleccion }}">
-              </div> 
-            
   
+        </div>
             <div class="form-group">
               <label for="visitou_lista">Visitou?</label>
-        <!-- <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
-              <option [value]="true">Sim</option>
+              <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
+              <option [value]="true" selected>Sim</option>
               <option [value]="false">Não</option>
-              </select> -->
-              <div class="seleccion">
-                <p>Sim</p><input class="Uno" type="radio" value="true" [(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
-                <p>Não</p><input class="Dos" type="radio" value="false"[(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
-              </div>
+              </select> 
+             
             </div>
        
             

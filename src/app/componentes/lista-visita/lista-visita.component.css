@@ -1,5 +1,6 @@
 .container {
   margin-top: 30px;
+ 
   
   
 }
@@ -8,7 +9,7 @@
 
 .add-car {
   margin-bottom: 30px;
-  
+  align-items: center;
 
   
 }
@@ -22,12 +23,10 @@
 }
 
 form {
-  width: 50%;
+  width: 130%;
 }
   
-.center {
-  align-items: center;
-}
+
 
 .fondo {
   background-image: url(/assets/Rio2.jpg);   
