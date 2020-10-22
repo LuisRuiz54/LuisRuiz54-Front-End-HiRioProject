@@ -1,9 +1,16 @@
 .container {
   margin-top: 30px;
+  
+  
 }
+
+
 
 .add-car {
   margin-bottom: 30px;
+  
+
+  
 }
 
 .list-car {
@@ -13,3 +20,112 @@
 .btn-add-car {
   margin-right: 10px;
 }
+
+form {
+  width: 50%;
+}
+  
+.center {
+  align-items: center;
+}
+
+.fondo {
+  background-image: url(/assets/Rio2.jpg);   
+  padding: 5px;
+}
+
+.card {
+  width: 100%;
+  opacity: 85%;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  color: black;   
+ 
+}
+
+nav {
+  background-color: rgba(255, 166, 0, 0.616);
+  color: white;
+  height: 60px;
+}
+
+.icon {
+  width: 58px;
+  height: 58px;
+  border-radius: 100%;
+  margin-left: 70px;
+  border: 3px solid white
+}
+
+div.container {
+  padding: 0px;
+  align-items: center;
+}
+
+div a {
+  padding: 0;
+}
+
+ul li a {
+  color: white;
+  margin-right: 10px;
+}
+
+.seleccion {
+  display: flex;
+}
+
+.seleccion input {
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+  margin-left: 7px;
+}
+
+/*.card-body {
+  flex-wrap: wrap;
+  width: auto;
+  height: auto;
+}*/
+
+button {
+  margin-right: 5px;
+  width: 95px;
+}
+nav button{
+  border: none;
+}
+
+/*Responsive*/
+
+@media (max-width: 1199px) {
+  td button {
+      width: 55px;
+      height: 15px;
+      font-size: 10px;
+      margin: 3px;
+      padding: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-body {
+      font-size: 15px;  
+  }
+}
+
+@media (max-width: 419px) {
+  nav {
+      width: auto;
+  }
+
+  div.container {
+      width: 320px;
+      margin: 3px 3px;
+  }
+  div.card-body th {
+      width: 30px;
+  }
+}
+
+

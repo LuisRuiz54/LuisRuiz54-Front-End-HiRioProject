@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
 import {Listas} from '../listavisitas/Listas'
+import { Pontos } from '../pontos-turisticos/Pontos';
 
 
 @Component({
@@ -12,21 +13,29 @@ import {Listas} from '../listavisitas/Listas'
 })
 export class ListaVisitaComponent implements OnInit {
 
-  listas = {} as Listas;
-  lista: Listas [];
+listas = {} as Listas;
+lista: Listas [];
+
+pontos = {} as Pontos;
+ponto: Pontos [];
+
+
+nome_lista: string  = '0';
+verSeleccion: string        = '';
+
+
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService ) { 
-  //  listaServ.getTodosListavisita()
-    //.subscribe(listavisita => this.listavisita = listavisita[''])
+
   }
 
   ngOnInit(): void {
-      
+    this.getPontosTuristicos();
   }
 
 
   SaveList(form: NgForm) {
     if (this.listas.id !== undefined) {
-      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+      this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
       });
     } else {
@@ -37,16 +46,32 @@ export class ListaVisitaComponent implements OnInit {
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }
 
-  editLista(Lista: Listas) {
-    this.listas = { ...Lista };
+  getPontosTuristicos(){
+    this.listaServ.getTodosPontosTuristicos()
+    .subscribe(dados => {
+    this.ponto = dados.lista;
+    });
   }
 
+  
+  teste() {
+    this.verSeleccion = this.listas.nome_lista;
+    /* this.id = this.verSeleccion
+  
+
+       this.listaServ.getLugaresById(parseInt(this.id)).
+      subscribe(dados => {
+        this.pontos = dados;
+      console.log(this.ponto)
+     }); */
   }
+
+}
 
 
 

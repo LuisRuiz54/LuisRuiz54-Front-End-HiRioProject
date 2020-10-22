@@ -20,12 +20,14 @@ pontos = {} as Pontos;
 ponto: Pontos[];
 mostrar: boolean = false;
 
+id:number;
+
   constructor(private route: ActivatedRoute, private listaServ: ListavisitaService) { 
     this.mostrar = false;
   }
 
   ngOnInit(): void {
-   this.getListaVisita();
+    this.getListaVisita();
 
   }
 
@@ -36,6 +38,13 @@ mostrar: boolean = false;
     });
   }
 
+  // getPontosTuristicosId(){
+  //   this.listaServ.getLugaresById(id)
+  //   .subscribe(dados => {
+  //   this.ponto = dados.lista;
+  //   });
+  // }
+
   getListaVisita(){
     this.listaServ.getTodosListavisita()
     .subscribe(dados => {
@@ -45,7 +54,7 @@ mostrar: boolean = false;
 
   SaveList(form: NgForm) {
     if (this.listas.id !== undefined) {
-      this.listaServ.updatetListaVisita(this.listas).subscribe(() => {
+      this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
         this.getListaVisita();
       });
@@ -58,7 +67,7 @@ mostrar: boolean = false;
   }
 
 // limpa o formulario
-   cleanForm(form: NgForm) {
+  cleanForm(form: NgForm) {
     this.listaServ.getTodosListavisita();
     form.resetForm();
   }
@@ -73,7 +82,6 @@ mostrar: boolean = false;
       this.getListaVisita();
     });
   }
-
 
 }
 
