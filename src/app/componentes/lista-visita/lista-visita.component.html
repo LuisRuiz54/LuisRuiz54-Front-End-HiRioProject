@@ -34,7 +34,6 @@
                 <p>Não</p><input class="Dos" type="radio" value="false"[(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
               </div>
             </div>
-       
             
         
         <div class="form-group">
@@ -53,7 +52,7 @@
         </div>
         <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
         <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
-       
+
       </form>
     
     </div>

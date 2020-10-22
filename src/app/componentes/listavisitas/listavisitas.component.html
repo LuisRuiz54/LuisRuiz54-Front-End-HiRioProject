@@ -20,30 +20,30 @@
       <h5 class="card-header">Meus Destinos</h5>
       <div class="card-body">
         <table class="table">
-            <thead>
-              <tr>
-               <th scope="col">Destino Número</th>
-               <th scope="col">Nome Destino</th>
-               <th scope="col">Já Visitou?</th>
-               <th scope="col">Opiniões</th>
-               <th scope="col">Preço</th>
-           </tr>
-       </thead>
-       <tbody>
+        <thead>
+          <tr>
+              <th scope="col">Destino Número</th>
+              <th scope="col">Nome Destino</th>
+              <th scope="col">Já Visitou?</th>
+              <th scope="col">Opiniões</th>
+              th scope="col">Preço</th>
+          </tr>
+      </thead>
+      <tbody>
            <tr *ngFor="let listas of lista">
-           <td>{{listas.id}}</td>     
-           <td>{{listas.nome_lista}}</td>
-           <td>{{listas.visitou_lista}}</td>
-           <td>{{listas.comentarios_lista}}</td>
-           <td>{{listas.valor_lista | currency}}</td>
-           <td class="botones">
+          <td>{{listas.id}}</td>     
+          <td>{{listas.nome_lista}}</td>
+          <td>{{listas.visitou_lista}}</td>
+          <td>{{listas.comentarios_lista}}</td>
+          <td>{{listas.valor_lista | currency}}</td>
+          <td class="botones">
             <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)">Editar</button>
             <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteLista(listas)">Deletar</button>
           </td>
 
-           </tr>
-       </tbody>
-   </table>
+          </tr>
+      </tbody>
+  </table>
 
   </div>
 
@@ -74,7 +74,7 @@
                 <div *ngIf="visitou_lista.errors.required">Comentarios sao obrigatorios</div>
               </div>
           </div>
-                     
+
       <div class="form-group">
         <label for="comentarios_lista">Opiniões</label>
         <input type="text" [(ngModel)]="listas.comentarios_lista" id="comentarios_lista" name="comentarios_lista" #comentarios_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && comentarios_lista.invalid }">
@@ -98,7 +98,7 @@
   </div>
   </div>
 
- </div>
+</div>
 
 </div>
   

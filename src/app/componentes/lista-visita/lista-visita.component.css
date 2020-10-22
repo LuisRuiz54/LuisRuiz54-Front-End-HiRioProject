@@ -1,16 +1,9 @@
 .container {
-  margin-top: 30px;
-  
-  
+  margin-top: 30px; 
 }
 
-
-
 .add-car {
-  margin-bottom: 30px;
-  
-
-  
+  margin-bottom: 30px;  
 }
 
 .list-car {
@@ -40,7 +33,6 @@ form {
   margin-top: 100px;
   margin-bottom: 50px;
   color: black;   
- 
 }
 
 nav {
@@ -81,12 +73,6 @@ ul li a {
   margin-right: 10px;
   margin-left: 7px;
 }
-
-/*.card-body {
-  flex-wrap: wrap;
-  width: auto;
-  height: auto;
-}*/
 
 button {
   margin-right: 5px;
