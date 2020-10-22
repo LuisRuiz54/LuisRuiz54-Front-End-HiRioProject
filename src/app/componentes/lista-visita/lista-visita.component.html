@@ -26,10 +26,14 @@
   
             <div class="form-group">
               <label for="visitou_lista">Visitou?</label>
-              <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
+        <!-- <select class="custom-select" [(ngModel)]="listas.visitou_lista"  id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel">
               <option [value]="true">Sim</option>
               <option [value]="false">Não</option>
-              </select>
+              </select> -->
+              <div class="seleccion">
+                <p>Sim</p><input class="Uno" type="radio" value="true" [(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
+                <p>Não</p><input class="Dos" type="radio" value="false"[(ngModel)]="listas.visitou_lista" id="visitou_lista" name="visitou_lista" #visitou_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && visitou_lista.invalid }">
+              </div>
             </div>
        
             
