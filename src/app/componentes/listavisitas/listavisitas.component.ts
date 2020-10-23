@@ -73,8 +73,12 @@ mostrar: boolean = false;
     form.resetForm();
   }
 
-  editLista(Lista: Listas) {
+  Mostrar(){
     this.mostrar = true;
+  }
+
+  editLista(Lista: Listas) {
+    
     this.listas = { ...Lista };
     
   }
