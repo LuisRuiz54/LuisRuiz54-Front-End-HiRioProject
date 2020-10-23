@@ -4,6 +4,7 @@ import {ActivatedRoute} from '@angular/router';
 import {ListavisitaService} from '../../services/listavisita.service';
 import {Listas} from '../listavisitas/Listas'
 import { Pontos } from '../pontos-turisticos/Pontos';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -30,6 +31,7 @@ verSeleccion: string        = '';
 
   ngOnInit(): void {
     this.getPontosTuristicos();
+    
   }
 
 
@@ -37,10 +39,12 @@ verSeleccion: string        = '';
     if (this.listas.id !== undefined) {
       this.listaServ.updateListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
+        Swal.fire('Obrigada','Dados guardados corretamente, Visite a seção Meus Destinos para visualizar suas visitas','success' )
       });
     } else {
       this.listaServ.createListaVisita(this.listas).subscribe(() => {
         this.cleanForm(form);
+        Swal.fire('Obrigada','Dados guardados corretamente, Visite a seção Meus Destinos para visualizar suas visitas','success' )
       });
     }
   }

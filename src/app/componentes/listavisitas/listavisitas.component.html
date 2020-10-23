@@ -1,8 +1,8 @@
 
-
-<div class="fondo"  >
+<div>
+<div class="fondo">
 <div class="container">
-    <div class="card list-car" *ngIf="mostrar==false">
+    <div class="card list-car" *ngIf="formVisibility==false">
       <h5 class="card-header">Meus Destinos</h5>
       <div class="card-body">
         <table class="table">
@@ -12,7 +12,7 @@
               <th scope="col">Nome Destino</th>
               <th scope="col">Já Visitou?</th>
               <th scope="col">Opiniões</th>
-              <th scope="col">Preço</th>
+              <th scope="col">Custos</th>
           </tr>
       </thead>
       <tbody>
@@ -23,7 +23,7 @@
           <td>{{listas.comentarios_lista}}</td>
           <td>{{listas.valor_lista | currency:'BRL':true:'1.2-2'}}</td>
           <td class="botones">
-            <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)">Editar</button>
+            <button type="button" class="btn btn-warning btn-sm" (click)="editLista(listas)" >Editar</button>
             <button type="button" class="btn btn-danger btn-sm ml-1" (click)="deleteLista(listas)">Deletar</button>
           </td>
 
@@ -31,8 +31,9 @@
       </tbody>
   </table>
   </div>
-  
-<div>
+</div>
+ 
+<div *ngIf="formVisibility==true">
 <div class="card add-car">
     <h5 class="card-header">Novo Destino</h5>
     <div class="card-body">
@@ -62,13 +63,13 @@
       </div>
 
       <div class="form-group">
-          <label for="valor_lista">Preço</label>
+          <label for="valor_lista">Custo da visita</label>
           <input type="number" [(ngModel)]="listas.valor_lista" id="price" name="valor_lista" #valor_lista="ngModel" required class="form-control" [ngClass]="{ 'is-invalid': f.submitted && valor_lista.invalid }">
           <div *ngIf="f.submitted && valor_lista.invalid" class="invalid-feedback">
               <div *ngIf="valor_lista.errors.required">Valor é obrigatório</div>
           </div>
       </div>
-      <button type="submit" class="btn btn-primary btn-add-car">Salvar</button>
+      <button type="submit" class="btn btn-primary btn-add-car" [disabled]="!f.form.valid">Atualizar</button>
       <button type="reset" class="btn btn-secondary btn-add-car" (click)="cleanForm(f)">Cancelar</button>
       <!-- [routerLink] = "['/listavisitas']" -->
     </form>
